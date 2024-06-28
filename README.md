@@ -1,10 +1,13 @@
 # How to setup a new Laravel app with Laravel-Base
 
-1. Fork this repo and `git pull` into the directory where you want to initialize the project (e.g. if `pwd = /home/user/src` we will be creating the new Laravel app at `home/user/src/laravel-app`).
+## Step 1
+Fork this repo and `git pull` into the directory where you want to initialize the project (e.g. if `pwd = /home/user/src` we will be creating the new Laravel app at `home/user/src/laravel-app`).
 
-2. Open the directory you just pulled in an editor of your choice.
+## Step 2 
+Open the directory you just pulled in an editor of your choice.
 
-3. Modify the the following parameters in `docker-compose.yml` according to your preference:
+## Step 3
+Modify the the following parameters in `docker-compose.yml` according to your preference:
 
 | Variable | Description |
 | - | - |
@@ -16,29 +19,41 @@
 
 *Tip: use the find and replace method to replace all occurrences of `laravel-base` with the desired project name*
 
-4. Spin up the containers using the following:
+## Step 4
+Spin up the containers using the following:
 
+```
 > docker-compose build app   //builds the image according to the Dockerfile
 
-> docker-compose up -d   //spins up the containers 
+> docker-compose up -d       //spins up the containers 
 
-> docker-compose ps   //if everything went well, this will show you a list of containers that are currently running which should include the ones you just spun up
+> docker-compose ps          //containers you should spun up should show up
+```
 
-5. Execute into the `app` container to initialize a new Laravel project:
+## Step 5
+Execute into the `app` container to initialize a new Laravel project:
 
+```
 > docker-compose exec app bash   //executes bash inside the `app` container
+```
 
 *Note: if you're using Git Bash, you likely have to prefix `winpty` in front of the command above*
 
-All instruction below should be exectued WITHIN the app container 
-------
+### **All instruction below should be exectued WITHIN the app container** 
 
-6. Double check that you're in the directory `/var/www` and initialize a new Laravel project:
+## Step 6
+Double check that you're in the directory `/var/www` and initialize a new Laravel project:
 
+```
 > compose create-project laravel/laravel \<name-of-project\> 
+```
 
-7. At this point, the newly initialized Laravel project should be contained within a folder at the same directory level as your `Dockerfile` and `docker-compose.yml`, move all contents of thie folder up a level to where `Dockerfile` is, **DO NOT FORGET THE FILES THAT STARTS WITH A `.`**. The old empty project folder may be deleted once everything has been moved.
+## Step 7
+At this point, the newly initialized Laravel project should be contained within a folder at the same directory level as your `Dockerfile` and `docker-compose.yml`, move all contents of thie folder up a level to where `Dockerfile` is, **DO NOT FORGET THE FILES THAT STARTS WITH A `.`**. The old empty project folder may be deleted once everything has been moved.
 
-8. After you run the following command, you should be able to see your application at `localhost:8000`
+## Step 8
+After you run the following command, you should be able to see your application at `localhost:8000`
 
+```
 > composer install
+```
