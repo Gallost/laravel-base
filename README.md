@@ -45,11 +45,11 @@ Execute into the `app` container to initialize a new Laravel project:
 Double check that you're in the directory `/var/www` and initialize a new Laravel project:
 
 ```
-> compose create-project laravel/laravel \<name-of-project\> 
+> composer create-project laravel/laravel <name-of-project> 
 ```
 
 ## Step 7
-At this point, the newly initialized Laravel project should be contained within a folder at the same directory level as your `Dockerfile` and `docker-compose.yml`, move all contents of thie folder up a level to where `Dockerfile` is, **DO NOT FORGET THE FILES THAT STARTS WITH A `.`**. The old empty project folder may be deleted once everything has been moved.
+At this point, the newly initialized Laravel project should be contained within a folder at the same directory level as your `Dockerfile` and `docker-compose.yml`, move all contents of this folder up a level to where `Dockerfile` is, **DO NOT FORGET THE FILES THAT STARTS WITH A `.`**. The old empty project folder may be deleted once everything has been moved.
 
 ## Step 8
 After you run the following command, you should be able to see your application at `localhost:8000`
